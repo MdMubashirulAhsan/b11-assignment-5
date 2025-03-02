@@ -56,57 +56,56 @@ document.getElementById("currDate").textContent = updatedDate;
 // complete button
 
 
-
-document.querySelector("#btn-c-1").addEventListener("click", function(event){
-    const tId = event.target.id;
-    document.querySelector("#btn-c-1").disabled = true;
-    document.querySelector("#btn-c-1").classList.add("bg-slate-400")
-    taskComplete();
-
-    
-})
-
-document.querySelector("#btn-c-2").addEventListener("click", function(event){
-  const tId = event.target.id;
-  document.querySelector("#btn-c-2").disabled = true;
-  document.querySelector("#btn-c-2").classList.add("bg-slate-400")
-  taskComplete();
-
+for(let i=1; i<7; i++){
+  const str = i.toString();
   
-})
+  document.querySelector('#btn-c-' + str)
+  
+.addEventListener("click", function () {
+  
+  document.querySelector("#btn-c-" + str).disabled = true;
+  document.querySelector("#btn-c-" + str).classList.add("bg-slate-400");
+  // let childElement = document.getElementById('childElement');
+
+  const a = document.querySelector("#card-title-" + str).textContent;
+  console.log(a)
+  // let parentElement = childElement.parentElement;
+
+
+// if (parentElement && parentElement.tagName.toLowerCase() === 'h1') {
+//   const a = 
+// }
+  taskComplete(a);
+});
+}
 
 // task complete function
 let nCheck = 23;
-let nTask =6;
+let nTask = 6;
 
-function taskComplete(){
-    alert("Board updated successfully");
-    
-    nCheck++;
-    nTask--;
-    const check = document.querySelector('#numCheck');
-const task = document.querySelector('#numTask');
-    check.textContent = nCheck;
-      task.textContent = nTask;
-      const para = document.createElement('p');
-    
-    para.textContent = `You have completed the task title at `;
-    const addHistory = document.getElementById('history');
-    addHistory.appendChild(para)
+function taskComplete(b) {
+  alert("Board updated successfully");
 
+  nCheck++;
+  nTask--;
+  const check = document.querySelector("#numCheck");
+  const task = document.querySelector("#numTask");
+  check.textContent = nCheck;
+  task.textContent = nTask;
+  const para = document.createElement("p");
 
-      if(nTask===0){
-        alert("Congrats!!! You have completed all the current task");
-      }
+  para.innerHTML = `<p class="bg-custom1 mb-2 border-r-slate-400 rounded-md p-2">You have completed the task title <span class="font-bold">${b}</span> at </p>`;
+  const addHistory = document.getElementById("history");
+  addHistory.appendChild(para);
+
+  if (nTask === 0) {
+    alert("Congrats!!! You have completed all the current task");
+  }
 }
-
-
 
 // clear history
 
-document.querySelector('#clearBtn').addEventListener("click", function(){
-    const toBeCleared = document.querySelector('#history');
-    toBeCleared.innerHTML = '';
-    
-    
-})
+document.querySelector("#clearBtn").addEventListener("click", function () {
+  const toBeCleared = document.querySelector("#history");
+  toBeCleared.innerHTML = "";
+});

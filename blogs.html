@@ -23,8 +23,20 @@
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              custom1 : "#F4F7FF",
+              
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body class="px-16 pt-4 pb-4 bg-slate-500">
+  <body class="px-16 pt-4 pb-4 bg-custom1">
     <!-- adding nav bar -->
     <nav>
       <div class="navbar bg-base-100 rounded-xl shadow-sm mb-6">
@@ -82,5 +94,6 @@
     
     
     <script src="./scripts/blog-script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
