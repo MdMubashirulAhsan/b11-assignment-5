@@ -59,21 +59,20 @@ document.getElementById("currDate").textContent = updatedDate;
 
 document.querySelector("#btn-c-1").addEventListener("click", function(event){
     const tId = event.target.id;
+    document.querySelector("#btn-c-1").disabled = true;
+    document.querySelector("#btn-c-1").classList.add("bg-slate-400")
     taskComplete();
 
     
-    
-    
-    
-    
-    
-    
-      // Update the displayed count
-      
+})
 
+document.querySelector("#btn-c-2").addEventListener("click", function(event){
+  const tId = event.target.id;
+  document.querySelector("#btn-c-2").disabled = true;
+  document.querySelector("#btn-c-2").classList.add("bg-slate-400")
+  taskComplete();
 
-
-
+  
 })
 
 // task complete function
@@ -82,8 +81,7 @@ let nTask =6;
 
 function taskComplete(){
     alert("Board updated successfully");
-    document.getElementById(tId).disabled = true;
-    document.getElementById(tId).classList.add("bg-slate-400")
+    
     nCheck++;
     nTask--;
     const check = document.querySelector('#numCheck');
@@ -91,8 +89,11 @@ const task = document.querySelector('#numTask');
     check.textContent = nCheck;
       task.textContent = nTask;
       const para = document.createElement('p');
-    const title1 = document.getElementById('cTitle-' + tId).textContent;
-    para.textContent = `You have completed the task title${tId} at `;
+    
+    para.textContent = `You have completed the task title at `;
+    const addHistory = document.getElementById('history');
+    addHistory.appendChild(para)
+
 
       if(nTask===0){
         alert("Congrats!!! You have completed all the current task");
@@ -105,7 +106,7 @@ const task = document.querySelector('#numTask');
 
 document.querySelector('#clearBtn').addEventListener("click", function(){
     const toBeCleared = document.querySelector('#history');
-    toBeCleared.removeChild();
+    toBeCleared.innerHTML = '';
     
     
 })
