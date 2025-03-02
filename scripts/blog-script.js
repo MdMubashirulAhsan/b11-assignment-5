@@ -1,7 +1,5 @@
+// // go to another page
 
-    // // go to another page
-    
-    document.querySelector("#btn").addEventListener("click",function(){
-            window.location.href = "index.html"
-        })
-   
+document.querySelector("#btn").addEventListener("click", function () {
+  window.location.href = "index.html";
+});

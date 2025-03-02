@@ -7,7 +7,7 @@ document.querySelector("#discovery").addEventListener("click", function () {
 //   background color changing
 
 const colorList = [
-  "bg-red-500",
+  "bg-custom1",
   "bg-slate-500",
   "bg-purple-500",
   "bg-sky-500",
@@ -15,16 +15,21 @@ const colorList = [
   "bg-slate-500",
 ];
 let color = 0;
-let previousColor = "";
+
+const bodyBg = document.querySelector("#bodyBgColor");
 const colorChange = document.querySelector("#bgBtn");
+
+bodyBg.classList.add(colorList[color]);
+
 colorChange.addEventListener("click", function () {
-  const bodyBg = document.querySelector("#bodyBgColor");
-  if (previousColor) {
-    bodyBg.classList.remove(colorList[color]);
-  }
-  previousColor = colorList[color];
-  bodyBg.classList.add(previousColor);
+  // Remove the current color class
+  bodyBg.classList.remove(colorList[color]);
+
+  // Increment the colorIndex and loop back to the start when it exceeds the length
   color = (color + 1) % colorList.length;
+
+  // Add the next color class
+  bodyBg.classList.add(colorList[color]);
 });
 
 // updated date
@@ -55,7 +60,7 @@ const months = [
   "Dec",
 ];
 
-const dayName = weekDay[date.getDay()]
+const dayName = weekDay[date.getDay()];
 
 const month = months[date.getMonth()];
 
@@ -63,10 +68,10 @@ const day = date.getDate();
 
 const year = date.getFullYear();
 
-const finalDate = `${dayName}, 
-                     ${month} ${day} ${year}`;
+const finalDate = `<p>${dayName}, <br> 
+                     ${month} ${day} ${year}</p>`;
 
-document.getElementById("currDate").textContent = finalDate;
+document.getElementById("currDate").innerHTML = finalDate;
 
 // complete button
 
@@ -79,32 +84,28 @@ for (let i = 1; i < 7; i++) {
     .addEventListener("click", function () {
       document.querySelector("#btn-c-" + str).disabled = true;
       document.querySelector("#btn-c-" + str).classList.add("bg-slate-400");
-      
+
       const a = document.querySelector("#card-title-" + str).textContent;
-            
+
       taskComplete(a);
     });
 }
 
-// current time 
+// current time
 
 const currDate = new Date();
 let hours = currDate.getHours();
 const minutes = currDate.getMinutes();
 const seconds = currDate.getSeconds();
 let amOrPm = "";
-  if(hours >= 12){
-    amOrPm = "PM";
-    hours = hours % 12;
-
-  }
-  else{
-    amOrPm = "AM";
-  }
-
+if (hours >= 12) {
+  amOrPm = "PM";
+  hours = hours % 12;
+} else {
+  amOrPm = "AM";
+}
 
 const c = `${hours}:${minutes}:${seconds} ${amOrPm}`;
-
 
 // task complete function
 let nCheck = 23;
@@ -129,10 +130,6 @@ function taskComplete(b) {
     alert("Congrats!!! You have completed all the current task");
   }
 }
-
-
-
-
 
 // clear history
 
