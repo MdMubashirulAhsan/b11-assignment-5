@@ -1,20 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dev Board</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-</head>
-<body class="px-4 pt-1 pb-3 bg-slate-500">
-    <nav class="p-1 rounded-sm border-lime-100 border-red-400">
-        <div class="logo-name">
-            <div class="log"></div>
-            <div class="name"></div>
+
+    <!-- add google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", serif;
+        font-style: normal;
+      }
+    </style>
+
+    <!-- add daisyUI link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- custom tailwind css -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              custom1 : "#F4F7FF",
+              
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body id="bodyBgColor" class="px-16 pt-4 pb-4 bg-custom1">
+    <nav>
+      <div class="navbar bg-base-100 rounded-xl shadow-sm">
+        <div class="w-10 rounded-full px-2">
+          <img alt="Dev Board logo" src="./assets/logo.png" />
         </div>
+        <div class="flex-1">
+          <h1>Dev<span class="font-bold">Board</span></h1>
+        </div>
+        <div>
+          <div
+            class="flex bg-custom1 p-2 rounded-full mr-2 justify-center items-center"
+          >
+            <div class="w-10 rounded-full">
+              <img alt="Dev Board logo" src="./assets/checkbox.png" />
+            </div>
+            <div class="flex-1">
+              <h1 id="numCheck" class="font-bold">23</h1>
+            </div>
+          </div>
+          <div id="bgBtn" class="bg-custom1 rounded-full p-1">
+            <img
+              class="w-full"
+              src="./assets/theme-btn.png"
+              alt="Theme button"
+            />
+          </div>
+        </div>
+      </div>
     </nav>
 
+    <div class="flex gap-4 bg-white rounded-md mt-5">
+      <main class="p-4 w-3/4 rounded-md">
+        <section class="flex gap-2 mb-4 justify-between">
+          <div
+            class="flex bg-custom1 p-2 rounded-md mr-2 justify-center items-center"
+          >
+            <div class="w-10 rounded-md">
+              <img alt="Dev Board logo" src="./assets/checkbox.png" />
+            </div>
+            <div class="flex-1">
+              <p>Task Assigned</p>
+              <h1 id="numTask" class="font-bold">6</h1>
+            </div>
+          </div>
+          <div
+            id="discovery"
+            class="flex bg-gradient-to-br from-blue-800 to-blue-300 rounded-md justify-center items-center p-2"
+          >
+            <img class="" src="./assets/board.png" alt="" />
+            <h1 class="text-white font-bold">Discovery Something New Today!</h1>
+          </div>
+          <div
+            class="flex bg-custom1 p-2 rounded-md  justify-center items-center "
+          >
+            <div class="w-10 rounded-md">
+              <img alt="Dev Board logo" src="./assets/calender.png" />
+            </div>
+            <div id="currDate" class="flex-1">
+              <!-- <h1 id="currDate" class="font-bold "></h1> -->
+            </div>
+          </div>
+        </section>
+        <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+        <section class="grid grid-cols-3 gap-4 text-sm">
+          <div class="card-1 p-4 rounded-md bg-custom1">
+            <div class="bg-white p-2 rounded-md">
+              <h3>ShopEase</h3>
+            </div>
+            <h1 id="cTitle-1" class="font-bold my-2">Fix Mobile Button Issue</h1>
+            <div class="p-2 bg-white rounded-md h-25">
+              <p>
+                Debug using Chrome DevTools, check for overlapping elements, and
+                ensure onClick works properly
+              </p>
+            </div>
+            <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+            <div class="flex justify-center items-center">
+              <h3>
+                Deadline <br />
+                <span class="font-bold">21 march 2025</span>
+              </h3>
+              <button id="btn-c-1" class="btn btn-primary ml-16">Completed</button>
+            </div>
+          </div>
 
-<script src="./scripts/script.js"></script>
-</body>
+          <div class="card-1 p-4 rounded-md bg-custom1">
+            <div class="bg-white p-2 rounded-md">
+              <h3>CloudSync</h3>
+            </div>
+            <h1 class="font-bold my-2">Add Dark Mode</h1>
+            <div class="p-2 bg-white rounded-md h-25">
+              <p>
+                Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.
+              </p>
+            </div>
+            <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+            <div class="flex justify-center items-center">
+              <h3>
+                Deadline <br />
+                <span class="font-bold">23 June 2025</span>
+              </h3>
+              <button class="btn btn-primary ml-16">Completed</button>
+            </div>
+          </div>
+
+          <div class="card-1 p-4 rounded-md bg-custom1">
+            <div class="bg-white p-2 rounded-md">
+              <h3>SwiftPay</h3>
+            </div>
+            <h1 class="font-bold my-2">Optimize  Home page </h1>
+            <div class="p-2 bg-white rounded-md h-25">
+              <p>
+                Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+
+              </p>
+            </div>
+            <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+            <div class="flex justify-center items-center">
+              <h3>
+                Deadline <br />
+                <span class="font-bold">21 march 2025</span>
+              </h3>
+              <button class="btn btn-primary ml-16">Completed</button>
+            </div>
+          </div>
+
+          <div class="card-1 p-4 rounded-md bg-custom1">
+            <div class="bg-white p-2 rounded-md">
+              <h3>Meta</h3>
+            </div>
+            <h1 class="font-bold my-2">Add new emoji 🤲</h1>
+            <div class="p-2 bg-white rounded-md h-25">
+              <p>
+                Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+and ensure onClick works properly
+              </p>
+            </div>
+            <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+            <div class="flex justify-center items-center">
+              <h3>
+                Deadline <br />
+                <span class="font-bold">21 march 2025</span>
+              </h3>
+              <button class="btn btn-primary ml-16">Completed</button>
+            </div>
+          </div>
+
+          <div class="card-1 p-4 rounded-md bg-custom1">
+            <div class="bg-white p-2 rounded-md">
+              <h3>Glassdoar</h3>
+            </div>
+            <h1 class="font-bold my-2">Improve Job searching </h1>
+            <div class="p-2 bg-white rounded-md h-25">
+              <p>
+                Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+and ensure onClick works properly
+              </p>
+            </div>
+            <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+            <div class="flex justify-center items-center">
+              <h3>
+                Deadline <br />
+                <span class="font-bold">21 march 2025</span>
+              </h3>
+              <button class="btn btn-primary ml-16">Completed</button>
+            </div>
+          </div>
+
+          <div class="card-1 p-4 rounded-md bg-custom1">
+            <div class="bg-white p-2 rounded-md">
+              <h3>Google LLC</h3>
+            </div>
+            <h1 class="font-bold my-2">Integrate OpenAI API </h1>
+            <div class="p-2 bg-white rounded-md h-25">
+              <p>
+                Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+and ensure onClick works properly
+              </p>
+            </div>
+            <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+            <div class="flex justify-center items-center">
+              <h3>
+                Deadline <br />
+                <span class="font-bold">21 march 2025</span>
+              </h3>
+              <button class="btn btn-primary ml-16">Completed</button>
+            </div>
+          </div>
+
+          
+          
+        </section>
+      </main>
+      <aside id="historyP" class="w-1/4 p-4 rounded-md">
+        <div class="flex mb-4 justify-center">
+          <div class="mr-4">
+            <img src="./assets/activity.png" alt="" />
+          </div>
+          <h1>Activity Log</h1>
+        </div>
+        <div class="">
+          <button id="clearBtn" class="btn btn-primary ml-16">Clear History</button>
+        </div>
+        <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
+        <div id="history">
+
+        </div>
+      </aside>
+    </div>
+    
+
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>
