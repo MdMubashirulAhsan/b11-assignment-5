@@ -41,11 +41,11 @@
       };
     </script>
   </head>
-  
-  
-  
-  
-  <body id="bodyBgColor" class="px-16 pt-4 pb-4 bg-custom1">
+
+  <body
+    id="bodyBgColor"
+    class="px-16 pt-4 pb-4 bg-custom1 max-sm:p-2 max-lg:p-6"
+  >
     <nav>
       <div class="navbar bg-base-100 rounded-xl shadow-sm">
         <div class="w-10 rounded-full px-2">
@@ -76,9 +76,11 @@
       </div>
     </nav>
 
-    <div class="flex gap-4">
-      <main class="p-4 w-3/4 bg-white rounded-md mt-5 ">
-        <section class="flex gap-2 mb-4 justify-between">
+    <div class="flex gap-4 max-sm:flex-col-reverse max-lg:flex-col-reverse">
+      <main
+        class="p-4 w-3/4 bg-white rounded-md mt-5 max-sm:w-full max-lg:w-full"
+      >
+        <section class="flex gap-2 mb-4 justify-between max-sm:flex-col">
           <div
             class="flex bg-custom1 p-2 rounded-md mr-2 justify-center items-center"
           >
@@ -109,7 +111,9 @@
           </div>
         </section>
         <hr class="border-t-2 border-gray-400 border-dashed w-full my-6" />
-        <section class="grid grid-cols-3 gap-4 text-sm">
+        <section
+          class="grid grid-cols-3 gap-4 text-sm max-sm:grid-cols-1 max-lg:grid-cols-2"
+        >
           <div class="card-1 p-4 rounded-md bg-custom1">
             <div class="bg-white p-2 rounded-md">
               <h3>ShopEase</h3>
@@ -263,7 +267,10 @@
           </div>
         </section>
       </main>
-      <aside id="historyP" class="w-1/4 p-4 bg-white rounded-md mt-5">
+      <aside
+        id="historyP"
+        class="w-1/4 p-4 bg-white justify-items-center rounded-md mt-5 max-sm:w-full max-sm:my-2 max-lg:w-full"
+      >
         <div class="flex mb-4 justify-center">
           <div class="mr-4">
             <img src="./assets/activity.png" alt="" />
@@ -271,7 +278,10 @@
           <h1>Activity Log</h1>
         </div>
         <div class="">
-          <button id="clearBtn" class="btn btn-primary ml-16">
+          <button
+            id="clearBtn"
+            class="btn btn-primary max-sm:mx-auto max-lg:mx-auto"
+          >
             Clear History
           </button>
         </div>
