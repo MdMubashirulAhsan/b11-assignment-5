@@ -22,13 +22,13 @@ const colorChange = document.querySelector("#bgBtn");
 bodyBg.classList.add(colorList[color]);
 
 colorChange.addEventListener("click", function () {
-  // Remove the current color class
+  
   bodyBg.classList.remove(colorList[color]);
 
-  // Increment the colorIndex and loop back to the start when it exceeds the length
+  
   color = (color + 1) % colorList.length;
 
-  // Add the next color class
+  
   bodyBg.classList.add(colorList[color]);
 });
 
